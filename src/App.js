@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import VideoPlayer from './components/videoPlayer/VideoPlayer';
+import Playlist from './components/playList/Playlist';
+import { videos } from './components/VideoData';
 
-function App() {
+const App = () => {
+  const [selectedVideoIndex, setSelectedVideoIndex] = useState(0);
+
+  const handleSelectVideo = (index) => {
+    setSelectedVideoIndex(index);
+  };
+
+  const handleVideoEnd = () => {
+    const nextIndex = (selectedVideoIndex + 1) % videos.length;
+    console.log(nextIndex)
+    setSelectedVideoIndex(nextIndex);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <div className='video-section'>
+        <VideoPlayer
+          video={videos[selectedVideoIndex]}
+          onEnded={handleVideoEnd}
+        />
+      </div>
+      <div className='playlist-section'>
+        <Playlist videos={videos} onSelectVideo={handleSelectVideo} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

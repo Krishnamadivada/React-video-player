@@ -1,0 +1,48 @@
+.playlist-container {
+    margin-left: 1.5rem;
+    height: 100%;
+    width: 95%;
+    padding: 0.5rem;
+    overflow-y: auto;
+  }
+  
+.playlist-item {
+    display: flex;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    box-shadow: 0px 0px 8px 4px  rgba(0,0,0,0.1) 
+  }
+  
+.thumbnail {
+    margin-right: 0.6rem;
+    margin-left: 0.6rem;
+  }
+  
+.thumbnail img {
+    width: 7rem;
+    height: 4.5rem;
+    object-fit: cover;
+    border-radius: 0.3rem;
+  }
+  
+.video-info {
+    flex: 1;
+  }
+  
+.video-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+  
+.video-info p {
+    font-size: 1rem;
+    color: #555;
+}
+
+@media screen and (max-width: 800px) {
+  .playlist-container {
+    margin-left: 0;
+  }
+}
